@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MobileCompaniesMAUI.Views.ProfilePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:MobileCompaniesMAUI.Models"
+    xmlns:viewmodel="clr-namespace:MobileCompaniesMAUI.ViewModels"
+    x:DataType="viewmodel:ProfileViewModel"
+    Title="{Binding Title}">
+
+
+    <Grid
+        ColumnDefinitions="*,*"
+        ColumnSpacing="5"
+        RowDefinitions="Auto,*,Auto"
+        Margin="12,12,24,12"
+        RowSpacing="0">
+
+        <StackLayout
+            Grid.Column="0"
+            Padding="10"
+            Margin="0"
+            Grid.ColumnSpan="3"
+            VerticalOptions="Center">
+            <StackLayout Orientation="Horizontal" Spacing="0">
+                <Label Text="Name: " FontSize="Medium" />
+                <Label Text="{Binding CurrentDevice.Name}" FontSize="Medium" FontAttributes="Bold" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="0">
+                <Label Text="Model: " FontSize="Medium"/>
+                <Label Text="{Binding CurrentDevice.Model}" FontSize="Medium" FontAttributes="Bold" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="0">
+                <Label Text="Manufacturer: " FontSize="Medium"/>
+                <Label Text="{Binding CurrentDevice.Manufacturer}" FontSize="Medium" FontAttributes="Bold" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="0">
+                <Label Text="Type: " FontSize="Medium"/>
+                <Label Text="{Binding CurrentDevice.Type}" FontSize="Medium" FontAttributes="Bold" />
+            </StackLayout>
+            <Label Text="Company: " FontSize="Medium" Margin="0,0,0,8"/>
+            <Picker Title="Select a Company" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"
+                    ItemsSource="{Binding Companies}"
+                    ItemDisplayBinding="{Binding Name}"
+                    BackgroundColor="Aqua"
+                    SelectedIndex="{Binding CompaniesIndex, Mode=TwoWay}" Margin="0,0,0,8" >
+            </Picker>
+            <StackLayout Orientation="Horizontal" Spacing="0">
+                <Label Text="Username: " FontSize="Medium"/>
+                <Entry Text="{Binding CurrentDevice.Username, Mode=TwoWay}" Placeholder="Enter a username" Grid.ColumnSpan="3" FontSize="Medium" FontAttributes="Bold" Margin="0,0,0,8" />
+            </StackLayout>
+
+            <Label  Text="{Binding ProfileStatus}" FontSize="Medium" FontAttributes="Bold" TextColor="MediumPurple"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Padding="0" Margin="0"
+                HorizontalTextAlignment="Center" />
+
+        </StackLayout>
+
+        <StackLayout
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="1"
+                Spacing="20" VerticalOptions="Center" HorizontalOptions="Center">
+            <Image
+                Aspect="AspectFit" Source="{Binding CurrentDevice.DeviceUserPhoto.Photo}"
+                IsVisible="{Binding IsNotRemoveImage}"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                WidthRequest="200"
+                HeightRequest="200"/>
+        </StackLayout>
+    
+        <VerticalStackLayout
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="12"
+                Spacing="20" VerticalOptions="Center">
+            <Button
+                Text="Add Photo"
+                Command="{Binding AddPhotoCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Margin="8" />
+            <StackLayout Orientation="Horizontal" Margin="14,0,0,0" Spacing="0">
+                <Label
+                    Text="Delete photo?" TextColor="MediumPurple"
+                    HorizontalOptions="End" VerticalOptions="Center" />
+                <CheckBox
+                    IsChecked="{Binding IsRemoveImage, Mode=TwoWay}"
+                    IsEnabled="{Binding IsNotBusy}"
+                    HorizontalOptions="Start" VerticalOptions="Center" />
+            </StackLayout>
+            <Button
+                x:Name="btnCRUD"
+                Text="Create / Update"
+                Command="{Binding UpdateCreateCommand}"
+                IsEnabled="{Binding CrudFlag}"
+                Margin="8" />
+        </VerticalStackLayout>
+
+        <Label  Text="Track me?" FontAttributes="Bold" FontSize="Medium" TextColor="BlueViolet"
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="12" HorizontalOptions="End" VerticalOptions="Center" />
+
+        <Switch x:Name="swRefresh" Toggled="OnToggled"
+                IsEnabled="{Binding PositionFlag}"
+                OnColor="Grey" ThumbColor="DarkOrange"
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="8" HorizontalOptions="Start" VerticalOptions="Center" />
+
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.ColumnSpan="2"
+                           Grid.RowSpan="3" />
+
+    </Grid>
+
+</ContentPage>

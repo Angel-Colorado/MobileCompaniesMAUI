@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MobileCompaniesMAUI.Views.AntennaPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:MobileCompaniesMAUI.Models"
+    xmlns:viewmodel="clr-namespace:MobileCompaniesMAUI.ViewModels"
+    x:DataType="viewmodel:AntennaViewModel"
+    Title="{Binding Title}">
+
+
+    <Grid
+        ColumnDefinitions="*,*,*"
+        ColumnSpacing="5"
+        RowDefinitions="Auto,*,Auto"
+        RowSpacing="0">
+
+        <VerticalStackLayout Grid.Row="0" Grid.ColumnSpan="3">
+            <Picker Title="Select a Company" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Title" BackgroundColor="Aqua"
+                    IsEnabled="{Binding IsNotBusy}"
+                    ItemsSource="{Binding Companies}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedIndex="{Binding CompaniesIndex}" >
+            </Picker>
+        </VerticalStackLayout>
+
+        <CollectionView ItemsSource="{Binding Antennas}"  x:Name="cvAntennas"
+                        SelectionMode="None"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="3">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Antenna">
+                    <Grid Padding="5">
+                        <Frame HeightRequest="142" >
+                            <Grid Padding="0" ColumnDefinitions="125,*">
+                                <Image Aspect="AspectFill" Source="{Binding Image}"
+                                         WidthRequest="125"
+                                         HeightRequest="125"/>
+                                <StackLayout
+                                    Grid.Column="1"
+                                    Padding="10"
+                                    VerticalOptions="Center">
+                                    <Label Text="{Binding Name}" />
+                                    <StackLayout Orientation="Horizontal" Spacing="0">
+                                        <Label Text="Distance:  " VerticalOptions="End" />
+                                        <Label Text="{Binding Distance, StringFormat='{0:N1} m.'}" FontAttributes="Bold" TextColor="OrangeRed" FontSize="Large" VerticalOptions="End" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Spacing="0">
+                                        <Label Text="{Binding Company.Name}" FontAttributes="Bold" FontSize="Medium" TextColor="Green" VerticalOptions="End" />
+                                        <Label Text=" | Zone:  " FontAttributes="Bold" VerticalOptions="End" />
+                                        <Label Text="{Binding Zone}" FontAttributes="Bold" TextColor="DeepSkyBlue" FontSize="Large" VerticalOptions="End" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Find Closest"
+                Command="{Binding GetClosestAntennaCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="8" />
+
+        <StackLayout
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Orientation="Horizontal" Spacing="0">
+            <Label
+                Text="Auto-refresh?" FontSize="Small" FontAttributes="Bold" TextColor="BlueViolet"
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="42,12,12,12" HorizontalTextAlignment="End" VerticalOptions="Center" />
+            <Switch
+                x:Name="swRefresh" Toggled="OnToggled"
+                OnColor="Grey" ThumbColor="DarkOrange"
+                Grid.Row="2"
+                Grid.Column="2"
+                HorizontalOptions="Start" VerticalOptions="Center"
+                Margin="8" />
+        </StackLayout>
+
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.RowSpan="3"
+                           Grid.Column="1" />
+
+    </Grid>
+</ContentPage>

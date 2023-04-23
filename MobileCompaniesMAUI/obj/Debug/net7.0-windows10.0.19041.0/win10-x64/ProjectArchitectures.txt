@@ -1,0 +1,1 @@
+M:\Portfolio (2023)\MobileCompaniesMAUI\MobileCompaniesMAUI\MobileCompaniesMAUI.csproj;x64

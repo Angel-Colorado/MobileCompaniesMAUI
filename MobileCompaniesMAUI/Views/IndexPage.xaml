@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MobileCompaniesMAUI.Views.IndexPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodel="clr-namespace:MobileCompaniesMAUI.ViewModels"
+    Title="Mobile Companies / Angel C">
+
+
+    <Grid
+        ColumnDefinitions="*,*,*"
+        ColumnSpacing="5"
+        RowDefinitions="Auto,*,Auto"
+        Margin="12,12,24,12"
+        RowSpacing="0">
+
+        <VerticalStackLayout
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="64"
+                Grid.ColumnSpan="3"
+                Spacing="20" VerticalOptions="Center">
+
+            <Button
+                Clicked="BtnProfile_Clicked"
+                Text="Profile Page"
+                IsEnabled="{Binding IsNotBusy}"
+                Margin="8" />
+
+            <Button
+                Clicked="BtnAntennas_Clicked"
+                Text="Antennas Page"
+                IsEnabled="{Binding IsNotBusy}"
+                Margin="8" />
+
+        </VerticalStackLayout>
+
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.RowSpan="2"
+                           Grid.Column="1" />
+
+    </Grid>
+
+</ContentPage>

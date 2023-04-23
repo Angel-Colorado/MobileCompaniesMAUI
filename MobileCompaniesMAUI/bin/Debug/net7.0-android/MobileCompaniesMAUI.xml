@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MobileCompaniesMAUI</name>
+    </assembly>
+    <members>
+        <member name="P:MobileCompaniesMAUI.Models.Antenna.Distance">
+            <inheritdoc cref="F:MobileCompaniesMAUI.Models.Antenna.distance"/>
+        </member>
+        <member name="P:MobileCompaniesMAUI.Models.Antenna.Zone">
+            <inheritdoc cref="F:MobileCompaniesMAUI.Models.Antenna.zone"/>
+        </member>
+        <member name="P:MobileCompaniesMAUI.ViewModels.AntennaViewModel.CompaniesIndex">
+            <inheritdoc cref="F:MobileCompaniesMAUI.ViewModels.AntennaViewModel.companiesIndex"/>
+        </member>
+        <member name="M:MobileCompaniesMAUI.ViewModels.AntennaViewModel.OnCompaniesIndexChanged(System.Int32)">
+            <summary>Executes the logic for when <see cref="P:MobileCompaniesMAUI.ViewModels.AntennaViewModel.CompaniesIndex"/> just changed.</summary>
+        </member>
+        <member name="F:MobileCompaniesMAUI.ViewModels.AntennaViewModel.getClosestAntennaCommand">
+            <summary>The backing field for <see cref="P:MobileCompaniesMAUI.ViewModels.AntennaViewModel.GetClosestAntennaCommand"/>.</summary>
+        </member>
+        <member name="P:MobileCompaniesMAUI.ViewModels.AntennaViewModel.GetClosestAntennaCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:MobileCompaniesMAUI.ViewModels.AntennaViewModel.GetClosestAntenna"/>.</summary>
+        </member>
+        <member name="P:MobileCompaniesMAUI.ViewModels.BaseViewModel.IsBusy">
+            <inheritdoc cref="F:MobileCompaniesMAUI.ViewModels.BaseViewModel.isBusy"/>
+        </member>
+        <member name="P:MobileCompaniesMAUI.ViewModels.BaseViewModel.Title">
+            <inheritdoc cref="F:MobileCompaniesMAUI.ViewModels.BaseViewModel.title"/>
+        </member>
+        <member name="P:MobileCompaniesMAUI.ViewModels.ProfileViewModel.CompaniesIndex">
+            <inheritdoc cref="F:MobileCompaniesMAUI.ViewModels.ProfileViewModel.companiesIndex"/>
+        </member>
+        <member name="P:MobileCompaniesMAUI.ViewModels.ProfileViewModel.CurrentDevice">
+            <inheritdoc cref="F:MobileCompaniesMAUI.ViewModels.ProfileViewModel.currentDevice"/>
+        </member>
+        <member name="P:MobileCompaniesMAUI.ViewModels.ProfileViewModel.ProfileStatus">
+            <inheritdoc cref="F:MobileCompaniesMAUI.ViewModels.ProfileViewModel.profileStatus"/>
+        </member>
+        <member name="P:MobileCompaniesMAUI.ViewModels.ProfileViewModel.PositionFlag">
+            <inheritdoc cref="F:MobileCompaniesMAUI.ViewModels.ProfileViewModel.positionFlag"/>
+        </member>
+        <member name="P:MobileCompaniesMAUI.ViewModels.ProfileViewModel.CrudFlag">
+            <inheritdoc cref="F:MobileCompaniesMAUI.ViewModels.ProfileViewModel.crudFlag"/>
+        </member>
+        <member name="P:MobileCompaniesMAUI.ViewModels.ProfileViewModel.IsRemoveImage">
+            <inheritdoc cref="F:MobileCompaniesMAUI.ViewModels.ProfileViewModel.isRemoveImage"/>
+        </member>
+        <member name="P:MobileCompaniesMAUI.ViewModels.ProfileViewModel.PhotoFile">
+            <inheritdoc cref="F:MobileCompaniesMAUI.ViewModels.ProfileViewModel.photoFile"/>
+        </member>
+        <member name="M:MobileCompaniesMAUI.ViewModels.ProfileViewModel.OnCompaniesIndexChanged(System.Int32)">
+            <summary>Executes the logic for when <see cref="P:MobileCompaniesMAUI.ViewModels.ProfileViewModel.CompaniesIndex"/> just changed.</summary>
+        </member>
+        <member name="M:MobileCompaniesMAUI.ViewModels.ProfileViewModel.OnIsRemoveImageChanged(System.Boolean)">
+            <summary>Executes the logic for when <see cref="P:MobileCompaniesMAUI.ViewModels.ProfileViewModel.IsRemoveImage"/> just changed.</summary>
+        </member>
+        <member name="F:MobileCompaniesMAUI.ViewModels.ProfileViewModel.addPhotoCommand">
+            <summary>The backing field for <see cref="P:MobileCompaniesMAUI.ViewModels.ProfileViewModel.AddPhotoCommand"/>.</summary>
+        </member>
+        <member name="P:MobileCompaniesMAUI.ViewModels.ProfileViewModel.AddPhotoCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:MobileCompaniesMAUI.ViewModels.ProfileViewModel.AddPhotoAsync"/>.</summary>
+        </member>
+        <member name="F:MobileCompaniesMAUI.ViewModels.ProfileViewModel.updateCreateCommand">
+            <summary>The backing field for <see cref="P:MobileCompaniesMAUI.ViewModels.ProfileViewModel.UpdateCreateCommand"/>.</summary>
+        </member>
+        <member name="P:MobileCompaniesMAUI.ViewModels.ProfileViewModel.UpdateCreateCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:MobileCompaniesMAUI.ViewModels.ProfileViewModel.UpdateCreate"/>.</summary>
+        </member>
+    </members>
+</doc>
